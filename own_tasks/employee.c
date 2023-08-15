@@ -36,49 +36,51 @@ struct Employee {
     int yearsOfService;
 };
 
-float calculateAverageExperience(struct Employee employers[], int numEmployers)
-{
+float calculateAverageExperience(struct Employee employees[], int numEmployees) {
     int totalExperience = 0;
-    for (int i = 0; i < numEmployers; i++)
-    {
-        totalExperience += employers[i].yearsOfService;
+    for (int i = 0; i < numEmployees; i++) {
+        totalExperience += employees[i].yearsOfService;
     }
-    return (float) totalExperience / numEmployers;
-    
-};
+    return (float)totalExperience / numEmployees;
+}
 
-// печатать только тех, у кого больше опыта, чем average;
-void printExperiencedEmployees(struct Employee employers[],int numEmpoyers, float totalExperience)
-{
-    for (int i = 0; i < numEmpoyers; i++)
-    {
-        if (employers[i].yearsOfService > averageExperience)
-        {
-            
+void printExperiencedEmployees(struct Employee employees[], int numEmployees, float averageExperience) {
+    printf("Experienced employees:\n");
+    for (int i = 0; i < numEmployees; i++) {
+        if (employees[i].yearsOfService > averageExperience) {
+            printf("Name: %s %s\n", employees[i].name, employees[i].surname);
+            printf("Position: %s\n", employees[i].position);
+            printf("Years of Service: %d\n", employees[i].yearsOfService);
+            printf("---------------------------\n");
         }
-        
     }
-    
-    
 }
 
+int main(void) {
+    struct Employee employees[MAX_EMPLOYEES];
+    int numEmployees;
 
+    printf("Enter the number of employees: ");
+    scanf("%d", &numEmployees);
 
+    for (int i = 0; i < numEmployees; i++) {
+        printf("Enter details for employee %d:\n", i + 1);
+        printf("Name: ");
+        scanf("%s", employees[i].name);
+        printf("Surname: ");
+        scanf("%s", employees[i].surname);
+        printf("Position: ");
+        scanf("%s", employees[i].position);
+        printf("Gender (M/F): ");
+        scanf(" %c", &employees[i].gender); // Notice the space before %c to consume newline
+        printf("Years of Service: ");
+        scanf("%d", &employees[i].yearsOfService);
+    }
 
+    float averageExperience = calculateAverageExperience(employees, numEmployees);
+    printf("Average experience: %.2f years\n", averageExperience);
 
+    printExperiencedEmployees(employees, numEmployees, averageExperience);
 
-
-
-
-
-
-int main (void)
-{
-    struct Employee employers[MAX_EMPLOYEES];
-    int numEmployers = 2; 
-    
-
-
-    float averageExperience = calculateAverageExperience(employers, numEmployers);
+    return 0;
 }
-
