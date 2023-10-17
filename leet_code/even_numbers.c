@@ -5,23 +5,19 @@
 
 #include <stdio.h>
 
-void evenNum(int* nums, int numsSize){
-
-    for (int i = 0; i < numsSize; i++)
-    {
-        if (nums[i] % 2 == 0 ){
-            printf( "%d", nums[i]);
+void evenNum(int* nums, int numsSize) {
+    for (int i = 0; i < numsSize; i++) {
+        if (nums[i] % 2 == 0) {
+            printf("%d", nums[i]);
         }
     }
 }
 
-int main(){
-    int arr [] = {1, 2, 4, 5, 8};
-    int size = sizeof(arr)/ sizeof(arr[0]);
+int main() {
+    int arr[] = {1, 2, 4, 5, 8};
+    int size = sizeof(arr) / sizeof(arr[0]);
 
-    evenNum(arr,size);
-
-
+    evenNum(arr, size);
 
     return 0;
 }

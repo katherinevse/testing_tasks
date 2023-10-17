@@ -7,7 +7,7 @@ void incrementValue(int *ptr) {
 
 int main() {
     int x = 10;
-    int b = 30; // не используется по факту
+    int b = 30;  // не используется по факту
 
     printf("Исходное значение x: %d\n", x);
 
