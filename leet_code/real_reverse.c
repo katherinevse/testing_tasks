@@ -5,24 +5,25 @@ void reverseArray(int *num, int size){
 
     for (int i = 0; i < size; i++)
     {
-        for (int j = size; i < 0; i++)
+        for (int j = size - 1 ; j >= 0; j--)
         {
             temp = num[i]; //1
-            num[j]= num[i]; // i = 9
-            temp = num[j];
+            num[i]= num[j]; // i = 9
+            num[j] = temp;
         }
     }
-    printf("%d", num);
+    
+    for (int t = 0; t < size; t++)
+    {
+        printf("%d",num[t]);
+    }
     
 }
-
 //
 /*
 1 = index size
 2 = index size -1
 3 = index size -2 ( j ) - index
-
-
 */
 int main(){
     int arr[]={ 1, 5, 6, 7, 8, 9};
