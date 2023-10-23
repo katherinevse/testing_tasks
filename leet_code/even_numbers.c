@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 
-void evenNum(int* nums, int numsSize) {
+void evenNum(int nums[], int numsSize) {
     for (int i = 0; i < numsSize; i++) {
         if (nums[i] % 2 == 0) {
             printf("%d", nums[i]);
